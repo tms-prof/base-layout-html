@@ -12,6 +12,8 @@ html, body {
 }
 
 body {
+    display:flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 
@@ -42,6 +44,36 @@ nav ul  {
     padding-left: 1rem;
 }
 
+/* utilidades */
+.acordeon {
+    height: 20vh;
+    width: 90%;
+    padding:1rem;
+}
+.acordeon-resposta { display: none; }
+.acordeon.ativo .acordeon-resposta { display: block; }
+.acordeon-button {
+    width: 2rem; 
+    height: auto; 
+    font-size: 2rem;
+    color:white;
+    background-color: black;
+    border:none;
+ }
+
+ .acordeon-button:hover {
+      background-color: rgb(69, 68, 68);
+ }
+
+.acordeon-pergunta {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    width: 40%;
+   
+}
+
 main {
     flex:1;
     background-color: black;
@@ -49,7 +81,7 @@ main {
 
 .sections {
     display:flex;
-    height: 80vh;;
+    height: 80vh;
     width: 100%;
 }
 
