@@ -5,19 +5,23 @@ export default function acordeon(wrapperId, pergunta, resposta) {
   const item = document.createElement('div');
   item.className = 'acordeon';
   item.innerHTML = `
-    <p class="acordeon-pergunta">
+    <div class="acordeon-pergunta">
       <span>${pergunta}</span>
-      <button class="acordeon-button">+</button>
-    </p>
-    <p class="acordeon-resposta">
-      <span>${resposta}</span>
-    </p>
+      <button class="acordeon-button" aria-expanded="false">+</button>
+    </div>
+
+    <div class="acordeon-resposta">
+      <div class="acordeon-resposta-conteudo">
+        <span>${resposta}</span>
+      </div>
+    </div>
+
   `;
 
-  const botao = item.querySelector('.acordeon-button');
+ const botao = item.querySelector('.acordeon-button');
   botao.addEventListener('click', () => {
-    const aberto = item.classList.toggle('ativo');
-    botao.textContent = aberto ? '−' : '+';
+    const aberto = item.classList.toggle('aberto');
+    botao.setAttribute('aria-expanded', aberto);
   });
 
   wrapper.appendChild(item);

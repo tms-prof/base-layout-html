@@ -45,34 +45,55 @@ nav ul  {
 }
 
 /* utilidades */
+
 .acordeon {
-    height: 20vh;
-    width: 90%;
-    padding:1rem;
+ width: 50%;
 }
-.acordeon-resposta { display: none; }
-.acordeon.ativo .acordeon-resposta { display: block; }
-.acordeon-button {
-    width: 2rem; 
-    height: auto; 
-    font-size: 2rem;
-    color:white;
-    background-color: black;
-    border:none;
- }
-
- .acordeon-button:hover {
-      background-color: rgb(69, 68, 68);
- }
-
 .acordeon-pergunta {
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    width: 40%;
-   
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
+
+.acordeon-button {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  font-size: 2rem;
+  border:none;
+  margin:5px;
+}
+
+.acordeon-button:active {
+  scale: 0.95 ;
+}
+
+/* wrapper externo: anima a altura */
+.acordeon-resposta {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease;
+}
+
+/* wrapper interno: esconde o overflow e anima opacity + translateY */
+.acordeon-resposta-conteudo {
+  overflow: hidden;
+  min-height: 0;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* aberto */
+.acordeon.aberto .acordeon-resposta {
+  grid-template-rows: 1fr;
+}
+
+.acordeon.aberto .acordeon-resposta-conteudo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
 main {
     flex:1;
